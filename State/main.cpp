@@ -58,10 +58,7 @@ public:
         }
     }
 };
-void handle() override {
-        std::cout << "Light is Red, stop." << std::endl;
-        std::this_thread::sleep_for(std::chrono::seconds(1));
-}
+
 // 具体状态的状态转换逻辑
 void RedLightState::changeState(TrafficLight& trafficLight) {
     trafficLight.setState(new GreenLightState());

@@ -46,7 +46,16 @@ boolean applyPreHandle(HttpServletRequest request, HttpServletResponse response)
         return true;
 }
 
+@Aspect
+public class LoggingAspect {
+    @Before("execution(* com.example.service.*.*(..))")
+    public void logBefore(JoinPoint joinPoint) {
+        // 执行前的日志记录逻辑
+    }
 
+    @After("execution(* com.example.service.commit.*(..))")
+    public void logAfter(JoinPoint joinPoint){...}
+}
 
 ```
 
@@ -56,3 +65,9 @@ Weinand A, Gamma E, Marty R. ET++—an object oriented application framework in 
 
 
 ![](./test.excalidraw.png)
+
+doDispatch 方法的实现是 Spring MVC 请求处理流程中非常关键的一环，它协调了请求的各个阶段，包括拦截器的执行、处理器的调用、视图的渲染以及异常处理，确保请求能够正确地被处理和响应。
+
+org.springframework.web.servlet.DispatcherServlet.java
+org.apache.catalina.core.ApplicationDispatcher.java
+ApplicationFilterChain

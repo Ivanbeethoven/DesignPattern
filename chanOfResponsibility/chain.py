@@ -1,8 +1,8 @@
-# 定义一个处理器基类
+# 处理器基类
 class Handler:
     def __init__(self, successor=None):
         self.successor = successor
-
+    # 继任者调用基函数
     def handle_request(self, request):
         if self.successor:
             self.successor.handle_request(request)

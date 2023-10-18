@@ -2,7 +2,7 @@
 class Handler:
     def __init__(self, successor=None):
         self.successor = successor
-
+    # 传递
     def handle_request(self, request):
         if self.successor:
             self.successor.handle_request(request)
